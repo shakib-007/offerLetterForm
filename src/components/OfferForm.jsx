@@ -133,11 +133,10 @@ const OfferForm = () => {
             const payload = {
                 ...formData,
                 salary: Number(formData.salary),
-                bonus: Number(formData.bonus) || 0,
             };
             console.log(payload);
 
-            await axios.post('https://shakiburrahman10.app.n8n.cloud/webhook-test/create-offer', payload);
+            await axios.post('https://shakiburrahman10.app.n8n.cloud/webhook-test/create-offer-letter', payload);
 
             setSubmitStatus('success');
             setFormData({
