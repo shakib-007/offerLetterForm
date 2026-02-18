@@ -7,7 +7,7 @@ import FormSelect from './FormSelect';
 import FormCheckbox from './FormCheckbox';
 
 const JOB_ROLES = [
-    { value: 'Software Engineer', label: 'Software Engineer' },
+    { value: 'Business Analyst', label: 'Business Analyst' },
     { value: 'Senior Software Engineer', label: 'Senior Software Engineer' },
     { value: 'Manager', label: 'Manager' },
     { value: 'Intern', label: 'Intern' },
@@ -136,7 +136,7 @@ const OfferForm = () => {
             };
             console.log(payload);
 
-            await axios.post('https://shakiburrahman10.app.n8n.cloud/webhook-test/create-offer-letter', payload);
+            await axios.post('https://shakiburrahman10.app.n8n.cloud/webhook/create-offer-letter', payload);
 
             setSubmitStatus('success');
             setFormData({
