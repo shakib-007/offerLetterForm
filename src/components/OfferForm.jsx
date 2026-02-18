@@ -36,6 +36,7 @@ const OfferForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        email_to_hr: '',
         phone: '',
         role: '',
         employment_type: '',
@@ -58,6 +59,11 @@ const OfferForm = () => {
             newErrors.email = 'Email is required';
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
             newErrors.email = 'Invalid email format';
+        }
+        if (!formData.email_to_hr.trim()) {
+            newErrors.email_to_hr = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(formData.email_to_hr)) {
+            newErrors.email_to_hr = 'Invalid email format';
         }
         if (!formData.phone.trim()) newErrors.phone = 'Phone is required';
         if (!formData.role) newErrors.role = 'Role is required';
@@ -140,8 +146,8 @@ const OfferForm = () => {
 
             setSubmitStatus('success');
             setFormData({
-                name: '', email: '', phone: '', role: '', employment_type: '', location: '',
-                joining_date: '', salary: '', bonus: '', benefits: [],
+                name: '', email: '', email_to_hr: '', phone: '', role: '', employment_type: '', location: '',
+                joining_date: '', salary: '', benefits: [],
                 manager_approved: false, finance_approved: false
             });
         } catch (error) {
@@ -156,7 +162,7 @@ const OfferForm = () => {
         <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden">
             <div className="bg-slate-50 px-8 py-6 border-b border-slate-100">
                 <h2 className="text-2xl font-bold text-slate-800">New Offer Submission</h2>
-                <p className="text-slate-500 mt-1">Enter candidate details and offer terms</p>
+                <p className="text-slate-500 mt-1">Enter candidate details</p>
             </div>
 
             <form onSubmit={handleSubmit} className="p-8 space-y-8">
@@ -255,6 +261,14 @@ const OfferForm = () => {
                             required
                         />
                     </div>
+                </section>
+
+                {/* Email to HR */}
+                <section className="space-y-4">
+                    <FormInput
+                        id="email_to_hr" label="Email Address of HR" type="email" placeholder="Enter the email address you want to send the offer letter to"
+                        value={formData.email_to_hr} onChange={handleChange} error={errors.email_to_hr} required
+                    />
                 </section>
 
                 {/* Status Messages */}
