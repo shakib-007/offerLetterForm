@@ -22,7 +22,6 @@ const EMPLOYMENT_TYPES = [
 const LOCATIONS = [
     { value: 'Dhaka', label: 'Dhaka' },
     { value: 'Remote', label: 'Remote' },
-    { value: 'Chittagong', label: 'Chittagong' },
 ];
 
 const BENEFITS_OPTIONS = [
